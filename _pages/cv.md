@@ -9,32 +9,39 @@ redirect_from:
 
 {% include base_path %}
 
+<a href='/files/cv_madsen_dennis.pdf'>Download CV</a>
+
 Education
 ======
-* B.S. in Github, Github University, 2012
-* M.S. in Jekyll, Github University, 2014
-* Ph.D in Version Control Theory, Github University, 2018 (expected)
+* PhD Candidate (University of Basel, Switzerland), 2017-Now
+* MSc Computer Science (University of Basel, Switzerland), 2015-2017
+* BSc Electrical Design Engineer (Aarhus University, Denmark), 2010-2014
+* University pre-Admission course (Aarhus University, Denmark), 2009-2010
+* Electronic Industrial Technician (Mercantec Viborg, Denmark), 2005-2009
 
 Work experience
 ======
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
+* Capana (Remote) - Internal tool development for Siemens-Gamesa wind power, 2016-Now
+* Siemens Wind Power (Brande, Denmark) - Embedded Software Support Engineer, 2014-2015
+* Microdevelopment (Herning, Denmark) - Owner, 2009-2014
+* Litepoint (Sunnyvale, California, USA) - Electronic Engineer Intern, 2013-2013
+* KK-Electronic (Ikast, Denmark) - Embedded Software Engineer Student/Electronic Industrial Technician Trainee, 2006-2014
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
-  
+Awards
+======
+* Best Presentation Award - to recognize the best poster presentation given at the Medical Imaging Summer School (MISS) 2018
+
+Hack-Awards
+======
+* Price Winner @ CopenHacks (Copenhagen, Denmark) 2017 - SocialEyes - Enabling visually impaired persons to easily share images on social media.
+* Main Sponser Winner (Logitech) @ LauzHack (Lausanne, Switzerland) 2016 - GamEmotion - analysis of gamers emotions while playing, and a website to evaluate the data stream.
+   
 Skills
 ======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Programming languages
+	* Scala, Python, C, C++, SQL, VHDL, Matlab, Java, Javascript
+* Markup
+	* Latex, Markdown, HTML, CSS 
 
 Publications
 ======
@@ -42,18 +49,6 @@ Publications
     {% include archive-single-cv.html %}
   {% endfor %}</ul>
   
-Talks
+Project Supervision
 ======
-  <ul>{% for post in site.talks %}
-    {% include archive-single-talk-cv.html %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* A Multi-Atlab approach to Skull Segmentation in MRI (Master-thesis) - Patrick Kahr (2018)

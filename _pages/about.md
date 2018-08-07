@@ -8,4 +8,4 @@ redirect_from:
   - /about.html
 ---
 
-This is some text about me.
+Hi, I'm Dennis!

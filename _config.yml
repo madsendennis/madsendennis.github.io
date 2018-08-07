@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "en-US"
+locale                   : "en-UK"
 title                    : "Dennis Madsen"
 title_separator          : "-"
 name                     : &name "Dennis Madsen"
@@ -80,10 +80,10 @@ analytics:
 author:
   name             : "Dennis Madsen"
   avatar           : "profile.png"
-  bio              : "Your biography for the left-hand sidebar"
-  location         : "Location"
+  bio              : "PhD Candidate in Medical Image Analysis at University of Basel"
+  location         : "Switzerland"
   employer         :
-  googlescholar    : "http://yourfullgooglescholarurl.com"
+  googlescholar    : "https://scholar.google.dk/citations?user=iQsbBDYAAAAJ&hl=en"
   email            :
   uri              :
   bitbucket        : "dmadsen"
@@ -97,7 +97,7 @@ author:
   keybase          :
   instagram        :
   lastfm           : 
-  linkedin         : https://www.linkedin.com/in/dennis-madsen-69142428
+  linkedin         : "dennis-madsen-69142428/"
   orcid            : #"http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
