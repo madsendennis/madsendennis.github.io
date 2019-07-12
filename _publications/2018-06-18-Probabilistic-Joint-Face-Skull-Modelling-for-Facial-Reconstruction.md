@@ -8,7 +8,7 @@ a skull shape.'
 date: '2018-06-18'
 venue: 'Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)'
 paperurl: 'http://openaccess.thecvf.com/content_cvpr_2018/CameraReady/3236.pdf'
-citation: 'Madsen, Dennis, Marcel Lüthi, Andreas Schneider, and Thomas Vetter'
+citation: 'Dennis Madsen, Marcel Lüthi, Andreas Schneider, and Thomas Vetter'
 ---
 
 <a href='/files/madsen_cvpr2018_poster_rfs.pdf'>Download CVPR 2018 poster</a>

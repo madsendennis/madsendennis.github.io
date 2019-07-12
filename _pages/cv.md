@@ -29,12 +29,14 @@ Work experience
 
 Awards
 ======
-* Best Presentation Award - to recognize the best poster presentation given at the Medical Imaging Summer School (MISS) 2018
+* Best Presentation Award - poster presentation given at the Medical Imaging Summer School (MISS) 2018
+* 2nd Best Presentation Award - presentation given at the EXCITE Summer School on Biomedical Imaging 
 
-Hack-Awards
+Hackathons
 ======
 * Price Winner @ CopenHacks (Copenhagen, Denmark) 2017 - SocialEyes - Enabling visually impaired persons to easily share images on social media.
 * Main Sponser Winner (Logitech) @ LauzHack (Lausanne, Switzerland) 2016 - GamEmotion - analysis of gamers emotions while playing, and a website to evaluate the data stream.
+* HackZürich participant 2016, 2017, 2018 - Europes largest hackathon.
    
 Skills
 ======
