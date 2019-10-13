@@ -2,13 +2,11 @@
 title: "Probabilistic Surface Reconstruction with Unknown Correspondence"
 collection: publications
 permalink: /publication/2019-10-17-Probabilistic-Surface-Reconstruction-with-Unknown-Correspondence
-excerpt: 'We create a probabilistic joint face-skull model and show
-how to obtain a distribution of plausible face shapes given
-a skull shape.'
+excerpt: 'Obtain posterior distribution of surface reconstructions without correspondence assumption.'
 date: '2019-10-17'
 venue: 'UNSURE: International Workshop on Uncertainty for Safe Utilization of Machine Learning in Medical Imaging'
 paperurl: 'https://link.springer.com/content/pdf/10.1007%2F978-3-030-32689-0_1.pdf'
-citation: 'Dennis Madsen, Marcel Lüthi, Andreas Schneider, and Thomas Vetter'
+citation: 'Dennis Madsen, Thomas Vetter and Marcel Lüthi'
 ---
 
 <a href='/files/madsen_miccai_unsure2019_poster.pdf'>Download MICCAI UNSURE Workshop 2019 poster</a>
