@@ -55,7 +55,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : # &twitter
+  username               : madsenVision
 facebook:
   username               :
   app_id                 :
@@ -86,7 +86,7 @@ author:
   googlescholar    : "https://scholar.google.dk/citations?user=iQsbBDYAAAAJ&hl=en"
   email            :
   uri              :
-  bitbucket        : "dmadsen"
+  bitbucket        : #"dmadsen"
   codepen          :
   dribbble         :
   flickr           :

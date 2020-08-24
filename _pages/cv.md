@@ -21,7 +21,7 @@ Education
 
 Work experience
 ======
-* Capana (Remote) - Internal tool development for Siemens-Gamesa wind power, 2016-Now
+* Capana (Remote) - Internal tool development for Siemens-Gamesa wind power, 2016-2019
 * Siemens Wind Power (Brande, Denmark) - Embedded Software Support Engineer, 2014-2015
 * Microdevelopment (Herning, Denmark) - Owner, 2009-2014
 * Litepoint (Sunnyvale, California, USA) - Electronic Engineer Intern, 2013-2013
@@ -54,3 +54,5 @@ Publications
 Project Supervision
 ======
 * A Multi-Atlab approach to Skull Segmentation in MRI (Master-thesis) - Patrick Kahr (2018)
+* Local Enhancement of Statistical Shape Models from Partial Data through Model Combination (Master-thesis) - Vladislav Girlea (2019)
+* Modelling Jaw Articulation in a Human Skull SSM (Master-thesis) - Samuel Hugger (2019)
