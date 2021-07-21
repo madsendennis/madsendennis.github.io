@@ -1,0 +1,82 @@
+{% include base_path %}
+
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<style>
+table, th, td {
+  border: none;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<div class="{{ include.type | default: "list" }}__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    {% if include.type == "grid" and teaser %}
+      <div class="archive__item-teaser">
+        <img src=
+          {% if teaser contains "://" %}
+            "{{ teaser }}"
+          {% else %}
+            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
+          {% endif %}
+          alt="">
+      </div>
+    {% endif %}
+
+    <h2 class="archive__item-title" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ base_path }}{{ post.url }}" rel="permalink"><i class="fa fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h2>
+    
+    {% if post.read_time %}
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> {% include read-time.html %}</p>
+    {% endif %}
+
+    {% if post.collection == 'publications' %}
+      <table style="width:100">
+      <tr><td width="25%" style="text-align:center">
+      {% if post.img %} 
+        <img src="{{ post.img }}" alt="{{ post.title}}" width="200">
+      {% endif %}
+      </td><td width="75%" style="text-align:left">
+      <p>{{post.authors}}, <br><i>{{ post.venue }}</i>, {{ post.date | default: "1900-01-01" | date: "%Y" }}</p><p>>
+      {% if post.paperurl %}
+        [<a href=" {{ post.paperurl }} "><u> PDF </u></a>]
+      {% endif %}
+      {% if post.poster %}
+        [<a href=" {{ post.poster }} "><u> POSTER </u></a>]
+      {% endif %}
+      {% if post.slides %}
+        [<a href=" {{ post.slides }} "><u> Slides </u></a>]
+      {% endif %}
+      {% if post.code %}
+        [<a href=" {{ post.code }} "><u> CODE </u></a>]
+      {% endif %}
+      {% if post.video %}
+        [<a href=" {{ post.video }} "><u> VIDEO </u></a>]
+      {% endif %}
+      {% if post.teaservideo %}
+        [<a href=" {{ post.teaservideo }} "><u> Teaser-VIDEO </u></a>]
+      {% endif %}
+      </p></td></tr></table>
+    {% endif %}
+
+
+  </article>
+</div>

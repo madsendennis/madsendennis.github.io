@@ -80,13 +80,13 @@ analytics:
 author:
   name             : "Dennis Madsen"
   avatar           : "profile.jpg"
-  bio              : "PhD Candidate in Medical Image Analysis at University of Basel"
+  bio              : "Postdoctoral Researcher in Medical Image Analysis at University of Basel"
   location         : "Switzerland"
   employer         :
   googlescholar    : "https://scholar.google.dk/citations?user=iQsbBDYAAAAJ&hl=en"
-  email            :
+  email            : "dennis.madsen@unibas.ch"
   uri              :
-  bitbucket        : #"dmadsen"
+  bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
@@ -104,11 +104,11 @@ author:
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : #"replacethistwitterhandle"
+  twitter          : "madsenVision"
   vine             :
   weibo            :
   xing             :
-  youtube          :
+  youtube          : "UC8fwFSM3zKpa-huYkubwEpA"
   wikipedia        :
 
 
@@ -257,14 +257,14 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+  #- jekyll-feed
   - jekyll-redirect-from
 # mimic GitHub Pages with --safe
 whitelist:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+  #- jekyll-feed
   - jemoji
 
 

@@ -10,9 +10,9 @@ redirect_from:
 
 Hi, I'm Dennis!
 
-I'm a Ph.D. Candidate at the University of Basel. My research area is Statistical Shape Models (SSMs) and their usage within automatic image analysis. 
+I'm a Postdoctoral Researcher at the University of Basel. My research area is Statistical Shape Models (SSMs) and their usage within automatic image analysis. 
 
-I have an MSc in Computer Science from the University of Basel and a BSc in Electrical Engineering from Aarhus University. 
+I have a PhD and a MSc in Computer Science from the University of Basel and a BSc in Electrical Engineering from Aarhus University. 
 
 I've previously worked nearly 10 years within the Wind Power industry, doing everything from hardware design, developing test systems, low-level controller software, web-applications for automatic documentation creation and in the field software acceptance test.
 

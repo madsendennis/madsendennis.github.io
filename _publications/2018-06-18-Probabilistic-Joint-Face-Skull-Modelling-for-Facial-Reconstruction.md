@@ -2,18 +2,16 @@
 title: "Probabilistic Joint Face-Skull Modelling for Facial Reconstruction"
 collection: publications
 permalink: /publication/2018-06-18-Probabilistic-Joint-Face-Skull-Modelling-for-Facial-Reconstruction
-excerpt: 'We create a probabilistic joint face-skull model and show
-how to obtain a distribution of plausible face shapes given
-a skull shape.'
 date: '2018-06-18'
 venue: 'Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)'
+authors: 'Dennis Madsen, Marcel Lüthi, Andreas Schneider, and Thomas Vetter'
 paperurl: 'http://openaccess.thecvf.com/content_cvpr_2018/CameraReady/3236.pdf'
-citation: 'Dennis Madsen, Marcel Lüthi, Andreas Schneider, and Thomas Vetter'
+poster: '/files/madsen_cvpr2018_poster_rfs.pdf'
+img: '/images/publications/2018_CVPR_faceskull.png'
 ---
 
-<a href='/files/madsen_cvpr2018_poster_rfs.pdf'>Download CVPR 2018 poster</a>
+[//]: <> <a href='/files/madsen_miss2018_poster_rfs.pdf'>Download MISS 2018 poster</a>
 <br>
-<a href='/files/madsen_miss2018_poster_rfs.pdf'>Download MISS 2018 poster</a>
 
 # Abstract
 We present a novel method for co-registration of two independent
