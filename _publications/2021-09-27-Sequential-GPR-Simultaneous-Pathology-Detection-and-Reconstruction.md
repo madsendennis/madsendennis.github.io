@@ -7,6 +7,7 @@ venue: 'International Conference on Medical Image Computing and Computer-Assiste
 authors: 'Dana Rahbani, Andreas Morel-Forster, Dennis Madsen, Jonathan Aellen, and Thomas Vetter'
 paperurl: 'https://link.springer.com/chapter/10.1007%2F978-3-030-87240-3_41'
 img: '/images/publications/2021_MICCAI_Dana.png'
+video: 'https://www.youtube.com/watch?v=0HZWnG_ZPCw'
 ---
 
 <br>
