@@ -7,6 +7,7 @@ venue: 'PhD Thesis'
 authors: 'Dennis Madsen'
 video: 'https://www.youtube.com/watch?v=QEC_pzB3hiA'
 img: '/images/publications/2021_phd.png'
+slides: '/files/PhD-defense-2021.pptx'
 ---
 
 <br>
