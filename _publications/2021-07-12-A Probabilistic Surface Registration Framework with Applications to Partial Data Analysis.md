@@ -5,6 +5,7 @@ permalink: /publication/2021-07-12-A Probabilistic Surface Registration Framewor
 date: '2021-07-12'
 venue: 'PhD Thesis'
 authors: 'Dennis Madsen'
+paperurl: 'https://edoc.unibas.ch/85938/1/phd_thesis_dennis-madsen_edoc.pdf'
 video: 'https://www.youtube.com/watch?v=QEC_pzB3hiA'
 img: '/images/publications/2021_phd.png'
 slides: '/files/PhD-defense-2021.pptx'
