@@ -5,7 +5,7 @@ permalink: /publication/2019-10-17-Probabilistic-Surface-Reconstruction-with-Unk
 date: '2019-10-17'
 venue: 'UNSURE: International Workshop on Uncertainty for Safe Utilization of Machine Learning in Medical Imaging'
 authors: 'Dennis Madsen, Thomas Vetter and Marcel Lüthi'
-paperurl: 'http://gravis.dmi.unibas.ch/publications/2019/2019-Madsen_ProbabilisticSurfaceReconstruc.pdf'
+paperurl: 'https://shapemodelling.cs.unibas.ch/gravis-site-archive/publications/2019/2019-Madsen_ProbabilisticSurfaceReconstruc.pdf'
 poster: '/files/madsen_miccai_unsure2019_poster.pdf'
 img: '/images/publications/2019_UNSURE_correspondence.png'
 ---

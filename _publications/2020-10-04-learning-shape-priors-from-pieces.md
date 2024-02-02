@@ -5,7 +5,7 @@ permalink: /publication/2020-10-04-learning-shape-priors-from-pieces
 date: '2020-10-04'
 venue: 'ShapeMi: Shape in Medical Imaging (MICCAI workshop)'
 authors: 'Dennis Madsen, Jonathan Aellen, Andreas Morel-Forster, Thomas Vetter and Marcel Lüthi'
-paperurl: 'http://gravis.dmi.unibas.ch/publications/2020/2020_Madsen_LearningShapePriorsFromPieces.pdf'
+paperurl: 'https://shapemodelling.cs.unibas.ch/gravis-site-archive/publications/2020/2020_Madsen_LearningShapePriorsFromPieces.pdf'
 code: 'https://github.com/unibas-gravis/shape-priors-from-pieces'
 video: 'https://www.youtube.com/watch?v=YqFhwr8VFOs'
 img: '/images/publications/2020_SHAPEMI_imputations.png'

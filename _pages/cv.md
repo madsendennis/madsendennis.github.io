@@ -13,7 +13,9 @@ redirect_from:
 
 Work experience
 ======
-* University of Basel (Basel, Switzerland) - Postdoctoral Researcher, 2021-Now
+* Dentexion GmbH (Zug, Switzerland) - Founder/CEO, 2023-Now
+* University of Zürich (Zürich, Switzerland) - Postdoctoral Researcher, 2023-Now
+* University of Basel (Basel, Switzerland) - Postdoctoral Researcher, 2021-2023
 * University of Basel (Basel, Switzerland) - Research Assistant / PhD Candidate, 2017-2021
 * Capana (Remote) - Internal tool development for Siemens-Gamesa wind power, 2016-2019
 * Siemens Wind Power (Brande, Denmark) - Embedded Software Support Engineer, 2014-2015
@@ -23,16 +25,20 @@ Work experience
 
 Education
 ======
-* PhD Candidate (University of Basel, Switzerland), 2017-2021
+* PhD (Data Analytics Program) (University of Basel, Switzerland), 2017-2021
 * MSc Computer Science (University of Basel, Switzerland), 2015-2017
 * BSc Electrical Design Engineer (Aarhus University, Denmark), 2010-2014
 * University pre-Admission course (Aarhus University, Denmark), 2009-2010
 * Electronic Industrial Technician (Mercantec Viborg, Denmark), 2005-2009
 
+Certificates
+======
+* Innosuisse Business Creation MEDTECH 2023
+
 Awards
 ======
 * Best Presentation Award - poster presentation given at the Medical Imaging Summer School (MISS) 2018
-* 2nd Best Presentation Award - presentation given at the EXCITE Summer School on Biomedical Imaging 
+* 2nd Best Presentation Award - presentation given at the EXCITE Summer School on Biomedical Imaging 2018
 
 Publications
 ======

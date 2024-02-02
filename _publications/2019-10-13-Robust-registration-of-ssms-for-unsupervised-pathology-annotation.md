@@ -5,7 +5,7 @@ permalink: /publication/2019-10-13-Robust-registration-of-ssms-for-unsupervised-
 date: '2019-10-13'
 venue: 'LABELS: International Workshop on Large-scale Annotation of Biomedical data and Expert Label Synthesis'
 authors: 'Dana Rahbani, Andreas Morel-Forster, Dennis Madsen, Marcel Lüthi and Thomas Vetter'
-paperurl: 'http://gravis.dmi.unibas.ch/publications/2019/2019-Rahbani_Chapter_RobustRegistrationOfStatistica.pdf'
+paperurl: 'https://shapemodelling.cs.unibas.ch/gravis-site-archive/publications/2019/2019-Rahbani_Chapter_RobustRegistrationOfStatistica.pdf'
 poster: '/files/rahbani_miccai_labels2019_poster.pdf'
 img: '/images/publications/2019_LABELS_robust.png'
 ---
