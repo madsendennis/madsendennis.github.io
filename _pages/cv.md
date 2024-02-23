@@ -13,8 +13,8 @@ redirect_from:
 
 Work experience
 ======
-* Dentexion GmbH (Zug, Switzerland) - Founder/CEO, 2023-Now
 * University of Zürich (Zürich, Switzerland) - Postdoctoral Researcher, 2023-Now
+* Dentexion GmbH (Zug, Switzerland) - Founder, 2023-Now
 * University of Basel (Basel, Switzerland) - Postdoctoral Researcher, 2021-2023
 * University of Basel (Basel, Switzerland) - Research Assistant / PhD Candidate, 2017-2021
 * Capana (Remote) - Internal tool development for Siemens-Gamesa wind power, 2016-2019
@@ -34,6 +34,8 @@ Education
 Certificates
 ======
 * Innosuisse Business Creation MEDTECH 2023
+* Innosuisse Start-up Training: Business Concept (Module 2) 2021
+* Project Management - A Toolbox for Scientist 2021
 
 Awards
 ======
