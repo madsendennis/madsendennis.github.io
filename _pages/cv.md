@@ -35,7 +35,7 @@ Certificates
 ======
 * Innosuisse Business Creation MEDTECH 2023
 * Innosuisse Start-up Training: Business Concept (Module 2) 2021
-* Project Management - A Toolbox for Scientist 2021
+* Project Management - A Toolbox for Scientists 2021
 
 Awards
 ======
@@ -49,10 +49,9 @@ Publications
   {% endfor %}</ul>
 
 Hackathons
-======
-* Price Winner @ CopenHacks (Copenhagen, Denmark) 2017 - SocialEyes - Enabling visually impaired persons to easily share images on social media.
-* Main Sponser Winner (Logitech) @ LauzHack (Lausanne, Switzerland) 2016 - GamEmotion - analysis of gamers emotions while playing, and a website to evaluate the data stream.
-* HackZürich participant 2016, 2017, 2018 - Europes largest hackathon.
+* Prize Winner @ CopenHacks (Copenhagen, Denmark) 2017 - SocialEyes - Enabling visually impaired persons to share images on social media easily.
+* Main Sponsor Winner (Logitech) @ LauzHack (Lausanne, Switzerland) 2016 - GamEmotion - analysis of gamers' emotions while playing and a website to evaluate the data stream.
+* HackZürich participant 2016, 2017, 2018 - Europe's largest hackathon.
    
 Skills
 ======
@@ -64,6 +63,6 @@ Skills
 Student Project Supervision
 ======
 * Segmentation of teeth in CBCT images with iterative 3D U-Net training for Building a Statistical Shape Model (Master-thesis) - Charu Jain (2021)
-* Modelling Jaw Articulation in a Human Skull SSM (Master-thesis) - Samuel Hugger (2019)
+* Modeling Jaw Articulation in a Human Skull SSM (Master-thesis) - Samuel Hugger (2019)
 * Local Enhancement of Statistical Shape Models from Partial Data through Model Combination (Master-thesis) - Vladislav Girlea (2019)
-* A Multi-Atlab approach to Skull Segmentation in MRI (Master-thesis) - Patrick Kahr (2018)
+* A Multi-Atlas Approach to Skull Segmentation in MRI (Master-thesis) - Patrick Kahr (2018)
