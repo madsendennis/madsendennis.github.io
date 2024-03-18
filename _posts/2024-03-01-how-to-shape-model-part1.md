@@ -53,9 +53,9 @@ val dataFolder = new File(dataDir, "registered")
 val meshes = dataFolder.listFiles().filter(_.getName.endsWith(".ply")).map(MeshIO.readMesh(_).get).toIndexedSeq
 val ref = meshes.head
 
-// val dataCollection = DataCollection.fromTriangleMesh3DSequence(ref, meshes)
-val dataCollection = DataCollection.gpa(ref, meshes)
-val ssm = PointDistributionModel.createUsingPCA(dataCollection)
+val dataCollection = DataCollection.fromTriangleMesh3DSequence(ref, meshes)
+val dataCollectionAligned = DataCollection.gpa(dataCollection) // OPTIONAL: Generalized Procrustes analysis
+val ssm = PointDistributionModel.createUsingPCA(dataCollectionAligned)
 val ui = ScalismoUI()
 ui.show(ssm, "ssm")
 ```
