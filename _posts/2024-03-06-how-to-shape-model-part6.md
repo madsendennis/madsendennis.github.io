@@ -74,7 +74,11 @@ Let's now call the function with the model limited to a certain number of princi
   })
 ```
 Finally, let's plot the output data
-![Vertebrae ssm generalization test data!](/images/posts/how-to-shape-model/evaluation_generalization_test.png)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/evaluation_generalization_test.png" alt="Vertebrae ssm generalization test data" style="width:100%">
+  <figcaption>Model generalization evaluation of a Vertebrae test data.</figcaption>
+</figure>
 
 Note again that the X-axis specifies the number of principal components we use from the model, while the Y-axis is the average distance in millimeters between the model and the test meshes.
 
@@ -82,7 +86,10 @@ In the plot we see how the model Generalizes better the more principal component
 
 If we compute the Generalization on the training data. When using all the principal components, the model should be able to precisely describe the data, i.e., a generalization of ~0. 
 
-![Vertebrae ssm generalization training data!](/images/posts/how-to-shape-model/evaluation_generalization_training.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/evaluation_generalization_training.png" alt="Vertebrae ssm generalization training data" style="width:100%">
+  <figcaption>Model generalization evaluation of a Vertebrae training data.</figcaption>
+</figure>
 
 We also see that this is the case. This, again, can be used to check if there is a need for all the principal components in the model. If we, e.g., have a model with 100 principal components, but already after 50, it can perfectly describe both the training data and test data, this could hint towards some data not being needed in the model.
 
@@ -100,7 +107,10 @@ For the specificity, we again use the function available in Scalismo's ModelMetr
 ```
 For the specificity, we should see that the more principal components that are used, we should be able to create shapes that are further away from the training data, i.e. a higher specificity value as also found in our case.
 
-![Vertebrae ssm specificity training data!](/images/posts/how-to-shape-model/evaluation_specificity_training.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/evaluation_specificity_training.png" alt="Vertebrae ssm specificity training data" style="width:100%">
+  <figcaption>Model specificity evaluation of a Vertebrae training data.</figcaption>
+</figure>
 
 For specificity, the Axis's describe the same as for Generalization - number of principal components and average distance in millimeters.
 
@@ -116,7 +126,10 @@ Finally, the compactness is a measure the model’s ability to use a minimal set
 
 We see that each added component adds a lot of new information to the model. Again, if we had a model with 100 principal components, we might see the values flatten out after some time, suggesting that the remining principal components provide little to no extra flexibility to the model.
 
-![Vertebrae ssm compactness training data!](/images/posts/how-to-shape-model/evaluation_compactness_training.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/evaluation_compactness_training.png" alt="Vertebrae ssm compactness training data" style="width:100%">
+  <figcaption>Model compactness evaluation of the Vertebrae model training data.</figcaption>
+</figure>
 
 Also in this plot, the X-axis is the number of principal components that we use from the model, while the Y-axis is the total variance $mm^2$ in the model
 

@@ -8,17 +8,20 @@ tags:
 In this series, I’ll show you how to get from a set of 3d meshes to a 3D statistical shape model. So let’s get right into it! 
 
 <!-- <Show visualization of meshes merging into model> -->
-![Vertebrae Dataset!](/images/posts/how-to-shape-model/vertebrae/raw_dataset.png)
 
 
 <!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
 This is the first tutorial in a series on how to create statistical shape models.
 
-In short, a statistical shape model captures the statistical variability in a set of object. Usually the set of objects are from the same shape class, so e.g. we could measure the statistics of hand variability in one model and head variability in another model, but we typically wouldn't combine this into one model. 
+In short, a statistical shape model captures the statistical variability in a set of object. Usually the set of objects are from the same shape class, so e.g. we could measure the statistics of hand variability in one model and head variability in another model, but we typically do not combine this into one model. 
 
-Let's start out by looking at an example:
+Let's start out by looking at an example of vertebrae shapes.
 
-![Vertebrae Dataset!](/images/posts/how-to-shape-model/vertebrae/ssm.gif)
+<figure>
+  <img src="/images/posts/how-to-shape-model/vertebrae/raw_dataset.png" alt="Vertebrae Dataset" style="width:50%">
+  <img src="/images/posts/how-to-shape-model/vertebrae/ssm.gif" alt="Vertebrae SSM" style="width:50%">
+  <figcaption>Dataset of Vertebraes used to build the statistical shape model and visualization of the first principal components of the model.</figcaption>
+</figure>
 
 Here we visually inspect an already created statistical shape model. We see that each of the components shows some variability in the geometry. 
 The order of these components is such that the first components show the direction in the data with the highest variability. The next component is with the second highest variability and so on. 
@@ -35,7 +38,8 @@ To begin with, we specify the Scala version to use and the Scalismo library.
 
 ```scala
 //> using scala "3.3"
-//> using dep "ch.unibas.cs.gravis::scalismo-ui:1.0.0"
+//> using dep "ch.unibas.cs.gravis::scalismo-ui:1.0-RC1"
+//> using dep "ch.unibas.cs.gravis::gingr:1.0-RC1"
 ```
 
 We will use the newer Scala 3 format and stick to the new Python-like styling with indentation instead of curly brackets.
@@ -49,7 +53,8 @@ val dataFolder = new File(dataDir, "registered")
 val meshes = dataFolder.listFiles().filter(_.getName.endsWith(".ply")).map(MeshIO.readMesh(_).get).toIndexedSeq
 val ref = meshes.head
 
-val dataCollection = DataCollection.fromTriangleMesh3DSequence(ref, meshes)
+// val dataCollection = DataCollection.fromTriangleMesh3DSequence(ref, meshes)
+val dataCollection = DataCollection.gpa(ref, meshes)
 val ssm = PointDistributionModel.createUsingPCA(dataCollection)
 val ui = ScalismoUI()
 ui.show(ssm, "ssm")
@@ -94,13 +99,21 @@ If we do the same for the `aligned` meshes, we see that this isn’t the case.
 
 Let’s look at a simple case of 3 hands[^1]. What the shape model contains is essentially the mean deformation and variance for each point in the mesh - and of course the covariance to neighbouring points. So in the case of the hands, we will find the mean hand size as well as the variability at each point. The corresponding points are here visualized with colors, so the same point color is located at the same anatomical point on each hand.
 
-![Hands Dataset!](/images/posts/how-to-shape-model/hands/hands_correspondence.png)
+![Hands Dataset!]()
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/hands/hands_correspondence.png" alt="Vertebrae Dataset" style="width:100%">
+  <figcaption>Hands dataset showing correspondence between the invididual hand shapes.</figcaption>
+</figure>
 
 When meshes are extracted from images e.g. by using the marching cubes algorithm or by scanning an object, they will not by default be in point correspondence. They will rarely have the same number of points. For this, we can perform non-rigid registration between a reference mesh and all the meshes in our dataset to obtain this property. This is also often referred to as fitting.
 
 A simple way to explain this is that we choose 1 reference mesh and we then find a deformation field that deforms the reference mesh to approximate each of the meshes in the dataset. As an example, we can overlay two hands and show the deformation needed to warp one hand into the other hand on the 11 given points.
 
-![Hands Dataset!](/images/posts/how-to-shape-modelhands/hands_deformations.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/hands/hands_deformations.png" alt="Vertebrae Dataset" style="width:100%">
+  <figcaption>Hands shapes showing the point deformations that a shape has to do to explain another shape.</figcaption>
+</figure>
 
 Each of the meshes in the dataset will in other words get the same point structure as the reference mesh, which is why it is important to choose a good reference mesh.
 

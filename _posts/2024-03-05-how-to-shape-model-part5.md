@@ -103,7 +103,11 @@ The main principles behind the [GiNGR](https://github.com/unibas-gravis/GiNGR) f
 
 The framework already comes with multiple different examples of how to perform fitting, but also automatic methods to calculate the models. 
 In the `prepare_data/03_registration.scala` I've made use of the GiNGR framework where I make use of the `Coherent Point Drift` implementation.
-![GiNGR CPD fitting vertebrae](/images/posts/how-to-shape-model/fitting_vertebrae.gif)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/fitting_vertebrae.gif" alt="GiNGR CPD fitting vertebrae" style="width:100%">
+  <figcaption>Non-rigid registration using the CPD algorithm in the GiNGR franwork. Yellow is target and white is deformable template.</figcaption>
+</figure>
 
 This method is very good in correcting minor rigid alignment offsets between the model and the target as well as giving a coarse fit to the data. As our data is very noisy, I'm already stopping after the coarse fit, as we would otherwise just start explaining the noise in the data with our model. 
 
@@ -115,14 +119,23 @@ The average distance and max distances after each step:
   STEP 2 - average2surface: 0.57 max: 5.92
   STEP 3 - average2surface: 0.21 max: 5.25
 ```
-![Bunny multi-resolution fitting](/images/posts/how-to-shape-model/fitting_bunny.gif)
+![]()
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/fitting_bunny.gif" alt="Bunny multi-resolution fitting" style="width:100%">
+  <figcaption>Combined Rigid and Non-rigid registration using the GiNGR franwork for multi-resolution fitting. Green is the starting template mesh, Yellow is target and white is deformable template.</figcaption>
+</figure>
 
 By no means are all of these steps necessary in all cases. Always start with a simple model and one of the methods and try to identify what areas can be improved. Also, if speed is not an issue, you can of course skip decimating the meshes and just use the complete meshes. 
 
 If you would like to know more in detail about the technical aspects of GiNGR, we've also put out a white paper, which you can find on [arXiv](https://arxiv.org/abs/2203.09986).
 
 And now, finally, when we compute the fits of all the items in our Vertebrae dataset, we can refer to tutorial 1 on how to calculate our statistical shape model.
-![Vertebrae Dataset!](/images/posts/how-to-shape-model/vertebrae/ssm.gif)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/vertebrae/ssm.gif" alt="Vertebrae Dataset" style="width:100%">
+  <figcaption>Statistical shape model of Vertebrae visualizing the first principle components.</figcaption>
+</figure>
 
 And that’s the end of the practical steps to create your first statistical shape model. The most crucial part is to look at your data and from there, decide how e.g. the kernel parameters need to look as well as the noise assumption during the fitting stage. If the dataset is very noisy, it does not make sense to create a model with thousands of basis functions that can perfectly fit the data. And likewise, if you have perfectly clean data, you need to add enough basis-functions to your model for it to be able to describe the data in detail. Also, remember to look at the official Scalismo tutorial on [Model fitting](https://scalismo.org/docs/Tutorials/tutorial11).
 

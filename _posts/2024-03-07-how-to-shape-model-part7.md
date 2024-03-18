@@ -13,7 +13,10 @@ This is the seventh tutorial in the series on how to create statistical shape mo
 ## Shape Model GIF
 If you are to include your model on a website or in a presentation, I often find it much more engaging to make a small animation of how the model deforms. A typical strategy I use is to write the principal components from 0 to 3 standard deviation, back to -3 and to 0, and do so for the top principal components. Before diving into the code, let's look at the resulting animation that we are looking to represent: 
 
-![Vertebrae SSM!](/images/posts/how-to-shape-model/vertebrae/ssm.gif)
+<figure>
+  <img src="/images/posts/how-to-shape-model/vertebrae/ssm.gif" alt="Vertebrae SSM" style="width:100%">
+  <figcaption>Visualization of the Vertebrae statistical shape model's first principal components.</figcaption>
+</figure>
 
 The first step is to write meshes to a folder for each change to the model parameters. First, we define the values each component should take, i.e., from $0$ to $3.0$ to $0$ to $-3.0$ and to $0$. Depending on your model, it might make sense to only show $+/- 2.0$ or $+/- 1$ standard deviation as $3.0$ standard deviation is a very unlikely shape. 
 ```scala
@@ -49,11 +52,18 @@ Next, we define the components that we want to capture, in this case, components
 ```
 The next step is to load the mesh sequence into [Paraview](https://www.paraview.org/). Select all the meshes from the output folder and drag them to the browser area in Paraview. 
 
-![Paraview load!](/images/posts/how-to-shape-model/paraview_load_sequence.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/paraview_load_sequence.png" alt="Paraview load" style="width:100%">
+  <figcaption>ParaView application for shape model animation creation.</figcaption>
+</figure>
 
 To smoothen the mesh visualization, apply the `Generate Surface Normals` filter to the mesh.
 
-![Paraview normal!](/images/posts/how-to-shape-model/paraview_normal.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/paraview_normal.png" alt="Paraview normal" style="width:100%">
+  <figcaption>ParaView application - smoothen out mesh visualization by re-generating surface normals.</figcaption>
+</figure>
+
 
 Next, set the canvas size to the dimensions that you would like the animation to be under `View -> Preview -> Custom`, in this example, I choose an image size of $800x800$ pixels.
 
@@ -64,7 +74,10 @@ Using the Play button at the top, check how the animation looks like. And check 
 The last step in Paraview is now to export the animation. I recommend exporting it as PNG files and converting those to a GIF afterward. Alternatively, Paraview also has a video export option. 
 To export `File -> Save Animation...`, select a name, folder, and in the `Animation Optionts`, remember to choose `Transparent Background`.
 
-![Paraview export!](/images/posts/how-to-shape-model/paraview_export.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/paraview_export.png" alt="Paraview export" style="width:100%">
+  <figcaption>ParaView application - export animation options.</figcaption>
+</figure>
 
 Finally, we need to convert the PNG files to a GIF. This can be done using (Imagemagick)[https://imagemagick.org/index.php]. 
 With the terminal, `CD` into the folder with the PNG files and execute
@@ -105,10 +118,17 @@ To begin with, we can try to visualize the manually created model
 ```
 As the model was created with a single Gaussian kernel, we correctly see that the further we get away from the selected landmark point, the less the points correlate with the landmark. 
 
-![Correlation color GPMM!](/images/posts/how-to-shape-model/visualization_color_gpmm.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/visualization_color_gpmm.png" alt="Correlation color GPMM" style="width:100%">
+  <figcaption>Shape model correlation colouring in Scalismo-UI. Model with a manually defined Gaussian Kernel.</figcaption>
+</figure>
 
 If we now instead use the created PCA model, we see that the kernel has incorporated that points on the mesh's back side correlate with the selected landmark point. This is most likely connected with the size of the mesh.
-![Correlation color PCA!](/images/posts/how-to-shape-model/visualization_color_pca.png)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/visualization_color_pca.png" alt="Correlation color PCA" style="width:100%">
+  <figcaption>Shape model correlation colouring in Scalismo-UI. Model with an automatically estimated kernel from the dataset using a PCA Kernel.</figcaption>
+</figure>
 
 ## Deformation Fields
 The last visualization method I want to show is how we can visualize deformation fields. This method is useful to check how smooth the deformation fields of a model are, as well as debugging correspondence estimation functions (such as ICP). 
@@ -123,7 +143,10 @@ The last visualization method I want to show is how we can visualize deformation
   val deformationField = DiscreteField3D(ref, deformations)
 ```
 
-![Sample deformations!](/images/posts/how-to-shape-model/visualization_deformations.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/visualization_deformations.png" alt="Sample deformations" style="width:100%">
+  <figcaption>Shape model deformation vector visualization in Scalismo-UI.</figcaption>
+</figure>
 
 
 ## Summary

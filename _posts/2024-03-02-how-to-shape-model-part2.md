@@ -7,11 +7,14 @@ tags:
 
 In this tutorial, I'll show you different methods to rigidly align your dataset. We will go from randomly aligned meshes to a well-aligned set of meshes from where it is much simpler to establish point-correspondence.
 
-![Vertebrae dataset not aligned!](/images/posts/how-to-shape-model/vertebrae/all_raw.png)
-![Vertebrae dataset aligned!](/images/posts/how-to-shape-model/vertebrae/all_aligned.png) 
-
 <!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
 This is the second tutorial in the series on how to create statistical shape models. 
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/vertebrae/all_raw.png" alt="Vertebrae Dataset raw" style="width:50%">
+  <img src="/images/posts/how-to-shape-model/vertebrae/all_aligned.png" alt="Vertebrae Dataset aligned" style="width:50%">
+  <figcaption>Vertebrae dataset in raw (not aligned) form and all shapes being rigidly aligned.</figcaption>
+</figure>
 
 Aligning your dataset can be tedious, but the time spent here can be well worth it, as it will make it much simpler to establish point correspondence and thereby create great statistical shape models.
 
@@ -73,7 +76,10 @@ val ui = ScalismoUI()
 
 Then we click the landmarking tool and start clicking landmarks. Either you can make use of the order the landmarks are defined, or as an alternative, I like to give meaningful names to the landmarks. If you have a large dataset, you can code up a semi-automatic method to help automatically change the landmarking names.
 
-![Scalismo landmarks!](/images/posts/how-to-shape-model/scalismo_landmarks.png)
+<figure>
+  <img src="/images/posts/how-to-shape-model/scalismo_landmarks.png" alt="Scalismo landmarks" style="width:100%">
+  <figcaption>Example of landmarks clicked on a mesh in Scalismo-UI.</figcaption>
+</figure>
 
 After the landmarks are clicked for each and every mesh in the dataset, it is time to align our data using Scalismo. 
 
@@ -128,11 +134,13 @@ def alignmentRigidICP(reference: TriangleMesh3D, target: TriangleMesh3D, numOfPo
 ```
 This method will iteratively estimate the corresponding points between the two meshes, calculate the transformation difference between the meshes and apply the transformation to one of the meshes. This method works well if the orientation of the meshes has already been solved. Often I use this as an additional alignment step after aligning the meshes with a few landmarks. 
 
-![Femur rigid alignment ICP!](/images/posts/how-to-shape-model/align_rigid.gif)
+If one of the meshes is flipped around an axis, the method might end up in the wrong orientation.
 
-If one of the meshes is flipped around an axis, the method might end up in the wrong orientation:
-
-![Femur rigid alignment ICP - Opposite!](/images/posts/how-to-shape-model/align_rigid_opposite.gif)
+<figure>
+  <img src="/images/posts/how-to-shape-model/align_rigid.gif" alt="Femur rigid alignment ICP" style="width:50%">
+  <img src="/images/posts/how-to-shape-model/align_rigid_opposite.gif" alt="Femur rigid alignment ICP - Opposite" style="width:50%">
+  <figcaption>Automatic alignment of two femur meshes using ICP. One example where the orientation is initially correct, and one where one mesh is flipped and therefore ends up in a local minima.</figcaption>
+</figure>
 
 In reality, you might often end up using a mixture of the above-mentioned methods. For the vertebras, I have defined a few manually clicked landmarks as also available on the GitHub repository.
 Depending on the dataset you are working with, a different mixture might be more useful.

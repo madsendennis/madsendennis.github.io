@@ -7,13 +7,16 @@ tags:
 
 In this tutorial, I'll show you how to define the space of deformations our template mesh can undergo. So we will go from a static mesh, to a parameterized model that defines a space of deformations on the template, which we e.g. can randomly sample from to visually see the space of deformations.
 
-![Vertebrae reference!](/images/posts/how-to-shape-model/vertebrae/ref.png)
-![Vertebrae ssm!](/images/posts/how-to-shape-model/vertebrae/ssm.gif)
-
 <!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
 This is the fourth tutorial in the series on how to create statistical shape models. 
 
 Defining the deformation space that the template can undergo might seem daunting with the endless possibilities of combinations. 
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/vertebrae/ref.png" alt="Vertebrae reference" style="width:50%">
+    <img src="/images/posts/how-to-shape-model/vertebrae/ssm.gif" alt="Vertebrae ssm" style="width:50%">
+  <figcaption>Example of a static mesh and an animation of how the mesh can deform to different instances.</figcaption>
+</figure>
 
 Commonly asked questions on the Scalismo mailing list are “What parameters should I use for my model kernels” and “What kernels to choose”. 
 
@@ -86,7 +89,12 @@ A Point distribution model can also be directly viewed in Scalismo, and we have 
 val ui = ScalismoUI()
 ui.show(pdm, "pdm")
 ```
-![Scalismo PDM!](/images/posts/how-to-shape-model/scalismo_pdm.png)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/scalismo_pdm.png" alt="Scalismo PDM" style="width:100%">
+  <figcaption>Scalismo-UI visualization of a statistical shape model.</figcaption>
+</figure>
+
 After having found the correct parameters to use for the model, it can be stored in a file and directly read again from disk, to avoid computing the model when we use it in the following tutorials. 
 ```scala
 StatismoIO.writeStatisticalTriangleMeshModel3D(pdm, new File("pdm.h5.json"))
@@ -95,7 +103,13 @@ val pdmRead = StatismoIO.readStatisticalTriangleMeshModel3D(new File("pdm.h5.jso
 
 When inspecting the model, it is important to remember what the model will be used for. Our goal is to make the model flexible enough to represent all the other shapes in our dataset this also means that when we randomly sample from our model, it is perfectly fine that the deformations look exaggerated and produce non-natural shapes. The most important part is that the deformations are smooth such that the mesh does not intersect with itself. This also means that e.g. the mesh we see here is far from flexible enough to represent other meshes as it mainly shifts the position of the mesh around. 
 
-For the sigma value, I like to use a value that is 1/2 or 1/3 of the longest distance in the mesh. By looking at the scene view in Scalismo, we can get a feeling for the size of the mesh. ![Scalismo mesh size!](/images/posts/how-to-shape-model/scalismo_size.png)
+For the sigma value, I like to use a value that is 1/2 or 1/3 of the longest distance in the mesh. By looking at the scene view in Scalismo, we can get a feeling for the size of the mesh. 
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/scalismo_size.png" alt="Scalismo mesh size" style="width:100%">
+  <figcaption>Scalismo-UI inspection of mesh size.</figcaption>
+</figure>
+
 Here we see that the mesh is 65mm on the X-axis, 77mm on the Y-axis and 39mm on the Z-axis. With the current value of sigma to 100, this means that all points will have some correlation, what this ends up practically meaning is that the deformations will translate the mesh around. 
 Let's instead try to set Sigma to 35. Afterward, we can tune the scaling value if the magnitude of the deformations is not large enough. 
 
@@ -112,7 +126,11 @@ val kernelFine = GaussianKernel3D(15, 10)
 val kernel = kernelCoarse + kernelFine
 val diagonal = DiagonalKernel3D(kernel, 3)
 ```
-![PDM Gaussian!](/images/posts/how-to-shape-model/faces/pdm_gaussian.png)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/faces/pdm_gaussian.png" alt="PDM Gaussian" style="width:100%">
+  <figcaption>Scalismo-UI visualization of a Gaussian kernel deformation.</figcaption>
+</figure>
 
 ## Symmetry Kernel
 An alternative kernel is the symmetry kernel. To showcase this kernel, I’ll use the reference mesh from the [Basel Face Model](https://faces.dmi.unibas.ch/bfm/bfm2019.html). First, let's look at how a random sample from the face model looks like with the kernel
@@ -135,11 +153,13 @@ def symmetrizeKernel(kernel : PDKernel[_3D]) : MatrixValuedPDKernel[_3D] =
 
 val diagonal = symmetrizeKernel(GaussianKernel3D(100, 10))
 ```
-![Scalismo mesh size!](/images/posts/how-to-shape-model/faces/pdm_symmetry.png)
 
+<figure>
+  <img src="/images/posts/how-to-shape-model/faces/pdm_symmetry.png" alt="PDM Symmetry" style="width:100%">
+  <figcaption>Scalismo-UI visualization of a symmetrical Gaussian kernel deformation.</figcaption>
+</figure>
 
 ## Changepoint Kernel
-
 Another kernel is the change point kernel. For this, let’s stick with the face mesh and make one side of the face with one kind of kernel and the other side with an inactive kernel. In this way, we should see that only half of the face deforms when we sample from the model.
 ```scala
 case class ChangePointKernel(kernel1 : MatrixValuedPDKernel[_3D], kernel2 : MatrixValuedPDKernel[_3D]) extends MatrixValuedPDKernel[_3D]():
@@ -157,10 +177,13 @@ val diagnonal = ChangePointKernel(
 )
 ```
 Make note of the s function, which defines which kernel to choose. This can either be binary to fully activate a kernel in a certain area, and fully deactivate it in others, or it can be made smooth as in the given example, such that the two kernels will have a smooth transition around the Z-axis in this case.
-![Scalismo mesh size!](/images/posts/how-to-shape-model/faces/pdm_changepoint.png)
+
+<figure>
+  <img src="/images/posts/how-to-shape-model/faces/pdm_changepoint.png" alt="PDM Changepoint" style="width:100%">
+  <figcaption>Scalismo-UI visualization of a changepoint kernel with Gaussian kernel deformation.</figcaption>
+</figure>
 
 ## Augmented Statistical shape model
-
 The final kernel I want to show is another mixture of kernels. This kernel could e.g. be used to iteratively include more data into your model.
 We start out with 5 meshes that are registered, from this, we can create a PCA kernel as also shown in the first video. Of course, 5 principal components rarely contain all small possible deformations, so we can augment the model e.g. with a Gaussian kernel, to make it more flexible. 
 ```scala
