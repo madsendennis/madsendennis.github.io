@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 3 - Template design"
-permalink: /posts/2024/03/12/how-to-shape-model-part3/
+permalink: /posts/how-to-shape-model-part3/
 tags:
   - shapemodelling
 ---

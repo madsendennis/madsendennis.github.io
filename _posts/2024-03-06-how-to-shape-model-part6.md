@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 6 - Model evaluation"
-permalink: /posts/2024/03/12/how-to-shape-model-part6/
+permalink: /posts/how-to-shape-model-part6/
 tags:
   - shapemodelling
 ---

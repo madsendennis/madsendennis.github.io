@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 4 - Deformable template / Kernel design"
-permalink: /posts/2024/03/12/how-to-shape-model-part4/
+permalink: /posts/how-to-shape-model-part4/
 tags:
   - shapemodelling
 ---

@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 2 - Alignment / Rigid registration"
-permalink: /posts/2024/03/12/how-to-shape-model-part2/
+permalink: /posts/how-to-shape-model-part2/
 tags:
   - shapemodelling
 ---

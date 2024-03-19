@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 1 - Introduction"
-permalink: /posts/2024/03/12/how-to-shape-model-part1/
+permalink: /posts/how-to-shape-model-part1/
 tags:
   - shapemodelling
 ---

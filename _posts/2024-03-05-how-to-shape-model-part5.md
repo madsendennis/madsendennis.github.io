@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 5 - Model fitting (non-rigid registration)"
-permalink: /posts/2024/03/12/how-to-shape-model-part5/
+permalink: /posts/how-to-shape-model-part5/
 tags:
   - shapemodelling
 ---

@@ -1,6 +1,6 @@
 ---
 title:  "How to Shape Model - Part 7 - Model visualization"
-permalink: /posts/2024/03/12/how-to-shape-model-part7/
+permalink: /posts/how-to-shape-model-part7/
 tags:
   - shapemodelling
 ---
