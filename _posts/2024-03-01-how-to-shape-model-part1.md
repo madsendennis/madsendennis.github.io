@@ -99,8 +99,6 @@ If we do the same for the `aligned` meshes, we see that this isn’t the case.
 
 Let’s look at a simple case of 3 hands[^1]. What the shape model contains is essentially the mean deformation and variance for each point in the mesh - and of course the covariance to neighbouring points. So in the case of the hands, we will find the mean hand size as well as the variability at each point. The corresponding points are here visualized with colors, so the same point color is located at the same anatomical point on each hand.
 
-![Hands Dataset!]()
-
 <figure>
   <img src="/images/posts/how-to-shape-model/hands/hands_correspondence.png" alt="Vertebrae Dataset" style="width:100%">
   <figcaption>Hands dataset showing correspondence between the invididual hand shapes.</figcaption>
