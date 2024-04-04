@@ -119,7 +119,6 @@ The average distance and max distances after each step:
   STEP 2 - average2surface: 0.57 max: 5.92
   STEP 3 - average2surface: 0.21 max: 5.25
 ```
-![]()
 
 <figure>
   <img src="/images/posts/how-to-shape-model/fitting_bunny.gif" alt="Bunny multi-resolution fitting" style="width:100%">
