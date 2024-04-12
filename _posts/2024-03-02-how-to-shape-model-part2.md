@@ -7,7 +7,10 @@ tags:
 
 In this tutorial, I'll show you different methods to rigidly align your dataset. We will go from randomly aligned meshes to a well-aligned set of meshes from where it is much simpler to establish point-correspondence.
 
-<!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
+#### Video walkthrough of the blogpost:
+
+[![YouTube Video Link](https://img.youtube.com/vi/FiC0lVt-noQ/0.jpg)](https://www.youtube.com/watch?v=FiC0lVt-noQ "How to Shape Model - Part2 - RIGID ALIGNMENT")
+
 This is the second tutorial in the series on how to create statistical shape models. 
 
 <figure>
@@ -149,7 +152,3 @@ And that’s basically all there is to rigidly aligning data. Of course, a lot o
 
 In the next tutorial:
 * We will look at different strategies for choosing a reference mesh for your statistical shape model.
-
-
-<!-- That was all for this video. Remember to give the video a like, comment below with your own shape model project and of course subscribe to the channel for more content like this.
-See you in the next video! -->
