@@ -7,7 +7,10 @@ tags:
 
 In this tutorial, I'll show you how to design the reference shape of your shape model. We'll go from this noisy segmented mesh to a clean and smooth mesh which will dramatically improve the usefulness of our shape model.
 
-<!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
+#### Video walkthrough of the blogpost:
+
+[![YouTube Video Link](https://img.youtube.com/vi/AO2UH4Xji60/0.jpg)](https://www.youtube.com/watch?v=AO2UH4Xji60 "How to Shape Model - Part3 - TEMPLATE DESIGN")
+
 This is the third tutorial in the series on how to create statistical shape models. 
 
 Choosing a good reference mesh is a very important step - but unfortunately also often overlooked. By mastering this step, you'll be able to create shape models that generalize better and can be magnitudes faster and easier to use. It is very important to keep the final application of the shape model in mind when choosing a reference shape. A model used for animation in contrast to a model used for segmentation or for feature point extraction can have very different requirements. 
@@ -65,7 +68,7 @@ The goal here is to remove noise as well as all possible biases that the mesh mi
 The last step I do is to decimate the mesh. You might want to avoid this step if you have already manually defined the coarseness of the mesh everywhere you want.
 Again, the amount of decimation completely depends on your usage of the model. The more the mesh is decimated, the fewer points it will have, thereby it will be faster to compute and take up less space. But it will also not look as good when rendering it.
 
-Let’s try out different decimation levels in Slicer and see what it looks like. I prefer the mesh output from quadratic edge decimation algorithm `filters -> Remeshing, Simplification and Reconstruction -> Simplification: Quadratic Edge Collapse Decimation`. 
+Let’s try out different decimation levels in MeshLab and see what it looks like. I prefer the mesh output from quadratic edge decimation algorithm `filters -> Remeshing, Simplification and Reconstruction -> Simplification: Quadratic Edge Collapse Decimation`. 
 
 <figure>
   <img src="/images/posts/how-to-shape-model/meshlab_decimate.png" alt="Meshlab decimate" style="width:80%">
@@ -79,10 +82,16 @@ val decimated = mesh.operations.decimate(1000)
 MeshIO.writeMesh(decimated, new File("decimated.ply"))
 ```
 
+<figure>
+  <img src="/images/posts/how-to-shape-model/vertebrae/ref_decimated_30000.png" alt="Decimated 30.000" style="width:20%">
+  <img src="/images/posts/how-to-shape-model/vertebrae/ref_decimated_10000.png" alt="Decimated 10.000" style="width:20%">
+  <img src="/images/posts/how-to-shape-model/vertebrae/ref_decimated_1000.png" alt="Decimated 1.000" style="width:20%">
+  <img src="/images/posts/how-to-shape-model/vertebrae/ref_decimated_100.png" alt="Decimated 100" style="width:20%">
+  <img src="/images/posts/how-to-shape-model/vertebrae/ref_decimated_10.png" alt="Decimated 10" style="width:20%">
+  <figcaption>Mesh decimation example with a decreasing number of vertices. From left 30.000, 10.000, 1.000, 100 and 10 vertices.</figcaption>
+</figure>
+
 That’s all there is to it. Some simple steps that will save you hours if not days of work down the line.
 
 In the next tutorial I'll show you:
 * How to design kernels to deform the choosen reference mesh in order to use it for non-rigid registration.
-
-<!-- That was all for this video. Remember to give the video a like, comment below with your own shape model project and of course subscribe to the channel for more content like this.
-See you in the next video! -->
