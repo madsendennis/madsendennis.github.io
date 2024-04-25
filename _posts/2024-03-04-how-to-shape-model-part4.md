@@ -7,7 +7,10 @@ tags:
 
 In this tutorial, I'll show you how to define the space of deformations our template mesh can undergo. So we will go from a static mesh, to a parameterized model that defines a space of deformations on the template, which we e.g. can randomly sample from to visually see the space of deformations.
 
-<!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
+#### Video walkthrough of the blogpost:
+
+[![YouTube Video Link](https://img.youtube.com/vi/sOsaoDUIh94/0.jpg)](https://www.youtube.com/watch?v=sOsaoDUIh94 "How to Shape Model - Part4 - KERNEL DESIGN")
+
 This is the fourth tutorial in the series on how to create statistical shape models. 
 
 Defining the deformation space that the template can undergo might seem daunting with the endless possibilities of combinations. 
@@ -23,7 +26,7 @@ Commonly asked questions on the Scalismo mailing list are “What parameters sho
 With a few heuristics in mind and a clear plan for defining your kernels, this task becomes a lot simpler. 
 
 For simplicity of this tutorial, I will not go into the formal definition of kernels.
-For this, I suggest you take a look at the tutorial from the [scalismo tutorials](https://scalismo.org/docs/Tutorials/tutorial07) from the Scalismo website or the instruction video from the [statisticial shape modelling course](https://shapemodelling.cs.unibas.ch/ssm-course/) at the University of Basel. <!-- I will link both of these resources in the video description. -->
+For this, I suggest you take a look at the tutorial from the [scalismo tutorials](https://scalismo.org/docs/Tutorials/tutorial07) from the Scalismo website or the instruction video from the [statisticial shape modelling course](https://shapemodelling.cs.unibas.ch/ssm-course/) at the University of Basel. 
 
 When talking about Gaussian Processes, a Kernel function describes how two data points are connected by describing their covariance. Simply said, when data point 1 moves, how much influence does this have on data point 2, if any at all? And also, how is the distance between point 1 and point 2 measured?
 
@@ -76,12 +79,12 @@ val lowRankGP = LowRankGaussianProcess.approximateGPCholesky(
 val sampleDeformation = lowRankGP.sample()
 val sample = ref.transform((p : Point[_3D]) => p + sampleDeformation(p))
 ```
-The `relativeTolerance` specifies the approximation error that is allowed. Setting it to 0.0 will mean that the low-rank approximation will precisely describe the continuous function. Usually, a value around 0.01 is desired. But, to begin with, I often put a higher value like 0.5 or 0.1 to quickly calculate the function and visualize it. The interpolator to use very much depends on your application. Either the nearest neighbor or the triangle mesh interpolators are good choices to try out. 
+The `relativeTolerance` specifies the approximation error that is allowed. Setting it to 0.0 will mean that the low-rank approximation will precisely describe the full covariance matrix. Usually, a value around 0.01 is desired. But, to begin with, I often put a higher value like 0.5 or 0.1 to quickly calculate the function and visualize it. The interpolator to use very much depends on your application. Either the nearest neighbor or the triangle mesh interpolators are good choices to try out. 
 And now with the low-rank function, we should be able to sample without having to decimate our reference mesh first. 
 
 A more convenient way to visualize samples from a Gaussian process is to build a Point Distribution Model from the low-rank Gaussian process. This allows us to directly sample meshes that follow the distribution represented by the Gaussian process and not have to deform the reference mesh manually from the given deformations. 
 ```scala
-val pdm = PointDistributionModel3D(referenceMesh, lowRankGP)
+val pdm = PointDistributionModel3D(ref, lowRankGP)
 val sampleFromPdm : TriangleMesh[_3D] = pdm.sample()
 ```
 A Point distribution model can also be directly viewed in Scalismo, and we have access to all its parameters as well as a handle to sample from the model.
@@ -121,8 +124,8 @@ You will only get to know so after running the non-rigid registration as introdu
 For completeness of this video, let’s continue adding some local deformations to our model by combining a kernel with a large sigma and one with a small sigma, I.e. a global and a local kernel. I typically visualize each model separately on the mesh and then combine the kernels afterward.
 
 ```scala
-val kernelCoarse = GaussianKernel3D(35, 50)
-val kernelFine = GaussianKernel3D(15, 10)
+val kernelCoarse = GaussianKernel3D(35, 10)
+val kernelFine = GaussianKernel3D(10, 3)
 val kernel = kernelCoarse + kernelFine
 val diagonal = DiagonalKernel3D(kernel, 3)
 ```
@@ -136,7 +139,7 @@ val diagonal = DiagonalKernel3D(kernel, 3)
 An alternative kernel is the symmetry kernel. To showcase this kernel, I’ll use the reference mesh from the [Basel Face Model](https://faces.dmi.unibas.ch/bfm/bfm2019.html). First, let's look at how a random sample from the face model looks like with the kernel
 ```scala
 val kernel = GaussianKernel3D(100, 10)
-val diagnoal = DiagonalKernel3D(kernel, 3)
+val diagonal = DiagonalKernel3D(kernel, 3)
 ``` 
 
 In the kernel, we'll define the mesh to be symmetrical around the Z-axis. In reality, faces are of course not fully symmetrical, but it is a good global kernel to have, we can then always add local deformations to it. 
@@ -171,7 +174,7 @@ case class ChangePointKernel(kernel1 : MatrixValuedPDKernel[_3D], kernel2 : Matr
     val sy = s(y)
     kernel1(x,y) * sx * sy + kernel2(x,y) * (1-sx) * (1-sy)
 
-val diagnonal = ChangePointKernel(
+val diagonal = ChangePointKernel(
   DiagonalKernel3D(GaussianKernel3D(100, 10), 3), 
   DiagonalKernel3D(GaussianKernel3D(1, 0), 3)
 )
@@ -185,7 +188,7 @@ Make note of the s function, which defines which kernel to choose. This can eith
 
 ## Augmented Statistical shape model
 The final kernel I want to show is another mixture of kernels. This kernel could e.g. be used to iteratively include more data into your model.
-We start out with 5 meshes that are registered, from this, we can create a PCA kernel as also shown in the first video. Of course, 5 principal components rarely contain all small possible deformations, so we can augment the model e.g. with a Gaussian kernel, to make it more flexible. 
+We start out with 10 meshes that are registered, from this, we can create a PCA kernel as also shown in the first video. Of course, 10 principal components rarely contain all small possible deformations, so we can augment the model e.g. with a Gaussian kernel, to make it more flexible. 
 ```scala
 val augmentedPDM = PointDistributionModel.augmentModel(pdm, lowRankGP)
 ```
@@ -194,6 +197,3 @@ And that’s the end of the practical guide to choosing your kernels and hyperpa
 
 In the next tutorial I'll show you:
 * How to use the model we created to fit to a target mesh, also known as non-rigid registration.
-
-<!-- That was all for this video. Remember to give the video a like, comment below with your own shape model project and of course subscribe to the channel for more content like this.
-See you in the next video! -->
