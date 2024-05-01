@@ -6,9 +6,11 @@ tags:
 ---
 
 In this tutorial, I'll show you how to use the deformable model that we created to establish correspondence between meshes. 
-<!-- VIDEO OF Non-rigid registration -->
 
-<!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
+#### Video walkthrough of the blogpost:
+
+[![YouTube Video Link](https://img.youtube.com/vi/4ELS5ZYm7eo/0.jpg)](https://www.youtube.com/watch?v=4ELS5ZYm7eo "How to Shape Model - Part5 - FITTING")
+
 This is the fifth tutorial in the series on how to create statistical shape models. 
 
 In this tutorial, we'll first manually code up a model fitting function to understand all the aspects of what goes into non-rigid registration using the Gaussian Processes and the Scalismo library. 
@@ -46,7 +48,7 @@ To begin with, I will just show you a very simple implementation method that has
 ```scala
 def nonrigidICP(model: PointDistributionModel[_3D, TriangleMesh], targetMesh: TriangleMesh3D, numOfSamplePoints: Int, numOfIterations: Int) : TriangleMesh3D = 
   val numOfPoints = model.reference.pointSet.numberOfPoints
-  val ptIds = (0 until numOfPoints by (numOfPoints / numOfIterations)).map(i => PointId(i))
+  val ptIds = (0 until numOfPoints by (numOfPoints / numOfSamplePoints)).map(i => PointId(i))
     
   def attributeCorrespondences(movingMesh: TriangleMesh3D) : IndexedSeq[(PointId, Point[_3D])] = 
     ptIds.map( (id : PointId) =>
@@ -62,7 +64,6 @@ def nonrigidICP(model: PointDistributionModel[_3D, TriangleMesh], targetMesh: Tr
     else 
       val correspondences = attributeCorrespondences(movingMesh)
       val posterior = model.posterior(correspondences, uncertainty)
-      posterior.mean
       fitting(posterior.mean, iteration - 1, uncertainty)
     
   fitting(model.reference, numOfIterations, 1.0)
@@ -142,6 +143,3 @@ The remaining tutorials are focused on model evaluation and different ways to vi
 
 In the next tutorial I'll go over:
 * Typical evaluation metrics are used to evaluate your statistical shape model. 
-
-<!-- That was all for this video. Remember to give the video a like, comment below with your own shape model project and of course subscribe to the channel for more content like this.
-See you in the next video! -->
