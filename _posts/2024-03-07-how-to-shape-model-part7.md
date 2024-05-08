@@ -7,7 +7,10 @@ tags:
 
 In this tutorial, I'll go over different strategies to visualize your shape model. 
 
-<!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
+#### Video walkthrough of the blogpost:
+
+[![YouTube Video Link](https://img.youtube.com/vi/ROSB3q82gsg/0.jpg)](https://www.youtube.com/watch?v=ROSB3q82gsg "How to Shape Model - PART7 - EXTRA - MODEL VISUALIZATION")
+
 This is the seventh tutorial in the series on how to create statistical shape models. So far, we've only visualized our model through manual inspection in [Scalismo-UI](https://github.com/unibas-gravis/scalismo-ui), but a number of additional useful visualization methods exist.
 
 ## Shape Model GIF
@@ -18,7 +21,7 @@ If you are to include your model on a website or in a presentation, I often find
   <figcaption>Visualization of the Vertebrae statistical shape model's first principal components.</figcaption>
 </figure>
 
-The first step is to write meshes to a folder for each change to the model parameters. First, we define the values each component should take, i.e., from $0$ to $3.0$ to $0$ to $-3.0$ and to $0$. Depending on your model, it might make sense to only show $+/- 2.0$ or $+/- 1$ standard deviation as $3.0$ standard deviation is a very unlikely shape. 
+The first step is to write meshes to a folder for each change to the model parameters. First, we define the values each component should take, i.e., from `0` to `3.0` to `0` to `-3.0` and to `0`. Depending on your model, it might make sense to only show `+/- 2.0` or `+/- 1` standard deviation as `3.0` standard deviation is a very unlikely shape. 
 ```scala
   val valstop = 30
   val stepSize = 5
@@ -30,6 +33,7 @@ Next, we define the components that we want to capture, in this case, components
 
 ```scala
   val outputDir = new File("data/tmp/")
+  outputDir.mkdirs()
 
   def processComponent(comp: Int): Unit = {
     rangeDouble.foreach { v =>
@@ -65,9 +69,9 @@ To smoothen the mesh visualization, apply the `Generate Surface Normals` filter 
 </figure>
 
 
-Next, set the canvas size to the dimensions that you would like the animation to be under `View -> Preview -> Custom`, in this example, I choose an image size of $800x800$ pixels.
+Next, set the canvas size to the dimensions that you would like the animation to be under `View -> Preview -> Custom`, in this example, I choose an image size of `800x800` pixels.
 
-If the Animation view is not visible, enable it `view -> Animation View`. Set Mode to `Sequence`, set the start time to $0$, the end time to the number of meshes in your exported folder, and the `No. Frames` to the frame rate times the animation duration. In our case, we chose 25FPS and the clip to last 4 seconds, which means 100 frames. 
+If the Animation view is not visible, enable it `view -> Animation View`. Set Mode to `Sequence`, set the start time to `0`, the end time to the number of meshes in your exported folder, and the `No. Frames` to the frame rate times the animation duration. In our case, we chose 25FPS and the clip to last 4 seconds, which means 100 frames. 
 
 Using the Play button at the top, check how the animation looks like. And check that the mesh is positioned correctly in the scene. 
 
@@ -114,7 +118,7 @@ To begin with, we can try to visualize the manually created model
 
   val modelLmFile = new File(dataDir, "ref_20.json")
   val landmarks = LandmarkIO.readLandmarksJson[_3D](modelLmFile).get
-  val lmId = model.referenceMesh.pointSet.findClosestPoint(landmarks(6).point).id
+  val lmId = model.reference.pointSet.findClosestPoint(landmarks(6).point).id
 ```
 As the model was created with a single Gaussian kernel, we correctly see that the further we get away from the selected landmark point, the less the points correlate with the landmark. 
 
@@ -136,7 +140,7 @@ The last visualization method I want to show is how we can visualize deformation
 ```scala
   val modelFile = new File(dataDir, "pca.h5.json")
   val model = StatisticalModelIO.readStatisticalMeshModel(modelFile).get 
-  val ref = model.referenceMesh
+  val ref = model.reference
   val sample = model.sample()
 
   val deformations = ref.pointSet.pointIds.map (id =>  sample.pointSet.point(id) - ref.pointSet.point(id)).toIndexedSeq
@@ -151,6 +155,3 @@ The last visualization method I want to show is how we can visualize deformation
 
 ## Summary
 So, in summary, always visualize your models and try out different visualization methods to better understand the inner workings of your model.
-
-<!-- That was all for this video. Remember to give the video a like, comment below with your own shape model project and of course subscribe to the channel for more content like this.
-See you in the next video! -->
