@@ -7,7 +7,10 @@ tags:
 
 In this tutorial, I'll go over different strategies to evaluate how good a shape model actually is. 
 
-<!-- Hi and welcome to “Coding with Dennis” - my name is Dennis  -->
+#### Video walkthrough of the blogpost:
+
+[![YouTube Video Link](https://img.youtube.com/vi/V81OuoHDRkk/0.jpg)](https://www.youtube.com/watch?v=V81OuoHDRkk "How to Shape Model - PART6 - EXTRA - MODEL EVALUATION")
+
 This is the sixth tutorial in the series on how to create statistical shape models. 
 
 When it comes to model evaluation, nothing beats visual inspection of the models anatomical properties. With [Scalismo-UI](https://github.com/unibas-gravis/scalismo-ui), we can inspect the individual principal components of the model one by one, as shown in the previous tutorials. 
@@ -131,7 +134,7 @@ We see that each added component adds a lot of new information to the model. Aga
   <figcaption>Model compactness evaluation of the Vertebrae model training data.</figcaption>
 </figure>
 
-Also in this plot, the X-axis is the number of principal components that we use from the model, while the Y-axis is the total variance $mm^2$ in the model
+Also in this plot, the X-axis is the number of principal components that we use from the model, while the Y-axis is the total variance `mm^2` in the model.
 
 While the model metrics can be used to evaluate individual models, they are more useful when comparing different models. As described, these models could be built from different datasets or using different techniques to create the model. Another useful area would be to compare the `PCA model` to different `augmented models`, as introduced in one of the previous tutorials. This can help to check if the model is augmented enough to generalize better but at the same time not too much to suddenly produce unrealistic shapes, i.e., high specificity.
 
@@ -140,6 +143,3 @@ So, in summary, always visualize your models and try to formulate an application
 
 In the next tutorial, I'll go over:
 * Different ways to visualize statistical shape models. 
-
-<!-- That was all for this video. Remember to give the video a like, comment below with your own shape model project and of course subscribe to the channel for more content like this.
-See you in the next video! -->
