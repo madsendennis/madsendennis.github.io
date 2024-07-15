@@ -9,8 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-<a href='/files/cv_madsen_dennis.pdf'>Download a .pdf version of my CV</a>
-
 Work experience
 ======
 * University of Zürich (Zürich, Switzerland) - Postdoctoral Researcher, 2023-2024
