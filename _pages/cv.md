@@ -11,13 +11,14 @@ redirect_from:
 
 Work experience
 ======
+* Promaton (Remote) - Senior Machine Learning Researcher, 2024-Current
 * University of Zürich (Zürich, Switzerland) - Postdoctoral Researcher, 2023-2024
-* Dentexion GmbH (Zug, Switzerland) - Founder, 2023-2024
+* Dentexion GmbH (Zug, Switzerland) - Founder / Machine Learning Engineer, 2023-2024
 * University of Basel (Basel, Switzerland) - Postdoctoral Researcher, 2021-2023
 * University of Basel (Basel, Switzerland) - Research Assistant / PhD Candidate, 2017-2021
 * Capana (Remote) - Internal tool development for Siemens-Gamesa wind power, 2016-2019
 * Siemens Wind Power (Brande, Denmark) - Embedded Software Support Engineer, 2014-2015
-* Microdevelopment (Herning, Denmark) - Founder, 2009-2014
+* Microdevelopment (Herning, Denmark) - Founder / Embedded Software Engineer, 2009-2014
 * Litepoint (Sunnyvale, California, USA) - Electronic Engineer Intern, 2013-2013
 * KK-Electronic (Ikast, Denmark) - Embedded Software Engineer Student/Electronic Industrial Technician Trainee, 2006-2014
 
