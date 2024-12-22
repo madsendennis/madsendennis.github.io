@@ -55,7 +55,7 @@ yandex_site_verification :
 
 # Social Sharing
 twitter:
-  username               : madsenVision
+  username               : 
 facebook:
   username               :
   app_id                 :
@@ -105,6 +105,7 @@ author:
   steam            :
   tumblr           :
   twitter          : "madsenVision"
+  threads          : "madsen_dennes"
   vine             :
   weibo            :
   xing             :

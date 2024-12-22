@@ -6,10 +6,13 @@
       <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
     {% endif %}
     {% if site.twitter.username %}
-      <li><a href="https://twitter.com/{{ site.twitter.username }}"><i class="fa fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+      <li><a href="https://twitter.com/{{ site.twitter.username }}"><i class="fa fa-fw fa-x-twitter" aria-hidden="true"></i> X</a></li>
+    {% endif %}
+    {% if site.theads.username %}
+    <li><a href="https://threads.net/{{ site.threads.username }}"><i class="fa fa-fw fa-threads" aria-hidden="true"></i> Threads</a></li>
     {% endif %}
     {% if site.author.linkedin %}
-      <li><a href="https://linkedin.com/{{ site.author.linkedin }}"><i class="fa fa-fw fa-linkedin-square" aria-hidden="true"></i> Linkedin</a></li>
+      <li><a href="https://linkedin.com/{{ site.author.linkedin }}"><i class="fa fa-fw fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
     {% endif %}
     {% if site.author.github %}
       <li><a href="http://github.com/{{ site.author.github }}"><i class="fa fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
